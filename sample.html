@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebCLI Samplepage</title>
+    <style>
+    	body {	background-color: #000; color: #BBB; 
+	        font-family: sans-serif; font-size: 14pt; 
+             }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="webcli.css">
+    <script src="webcli.js"></script>
+
+    <script>
+	var my_webcli;
+	$(document).ready(function(){
+	    my_webcli=new webcli($("#webcli"));
+	    my_webcli.add_text("This is the output area.");
+	    my_webcli.set_prompt("prompt> ");
+	    my_webcli.on_readline(function (line) {
+		my_webcli.add_text("you typed "+line);
+		return true; // return true to clear input field
+	    });
+	});
+    </script>
+</head>
+<body>
+    <div id=webcli></div>
+</body>
+</html>
+

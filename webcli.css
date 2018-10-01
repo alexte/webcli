@@ -1,0 +1,5 @@
+
+.webcli { font-family: monospace; }
+
+.webcli_input input { outline:none; font:inherit; background-color:inherit; color:inherit; border:none; }
+
