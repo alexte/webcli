@@ -18,11 +18,23 @@
 
     <script>
 	var my_webcli;
+	var state="password";
+
 	$(document).ready(function(){
 	    my_webcli=new webcli($("#webcli"));
 	    my_webcli.add_html("This is a sample page for the webcli library. <a href=https://github.com/alexte/webcli>https://github.org/alexte/webcli</a>");
-	    my_webcli.set_prompt("prompt> ");
+	    my_webcli.set_prompt("password: ");
+	    my_webcli.password_mode(true);
 	    my_webcli.on_readline(function (line) {
+	        if (state=="password")
+		{
+		    my_webcli.add_text("thank you for your password");
+		    my_webcli.password_mode(false);
+	            my_webcli.set_prompt("prompt> ");
+		    state="normal";
+		    return true;
+		}
+
 		my_webcli.add_text("you typed "+line);
 		return true; // return true to clear input field
 	    });

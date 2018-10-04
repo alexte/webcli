@@ -43,6 +43,10 @@ function webcli(output_element,input_element) {
 	on_readline=f;
     }
     
+    this.password_mode = function(b) {
+	inputfield.attr("type",b?"password":"text");
+    }
+    
     return this;
 }
 
